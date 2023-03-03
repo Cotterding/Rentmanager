@@ -29,6 +29,12 @@ public class VehicleService {
 	
 	public long create(Vehicle vehicle) throws ServiceException {
 		try {
+			if (vehicle.getConstructeur().isEmpty()) {
+				throw new ServiceException("Le constructeur est vide");
+				}
+			if (vehicle.getNb_places()<1) {
+				throw new ServiceException("Le nombre de place est inférieur à 1");
+			}
 			return vehicleDao.create(vehicle);
 		} catch (DaoException e) {
 			throw new ServiceException("Problème lors de la création du véhicule ");

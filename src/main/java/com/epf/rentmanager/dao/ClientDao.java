@@ -34,7 +34,7 @@ public class ClientDao {
 	public long create(Client client) throws DaoException {
 		try (Connection connection = ConnectionManager.getConnection()) {
 			PreparedStatement preparedStatement = connection.prepareStatement(CREATE_CLIENT_QUERY, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, client.getNom());
+			preparedStatement.setString(1, client.getNom().toUpperCase()); // nom en majuscule
 			preparedStatement.setString(2, client.getPrenom());
 			preparedStatement.setString(3, client.getEmail());
 			preparedStatement.setDate(4, Date.valueOf(client.getNaissance()));
@@ -109,3 +109,5 @@ public class ClientDao {
 	}
 
 }
+
+

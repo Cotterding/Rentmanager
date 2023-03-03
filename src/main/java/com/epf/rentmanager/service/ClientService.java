@@ -28,11 +28,18 @@ public class ClientService {
 	
 	public long create(Client client) throws ServiceException {
 		try {
+			if (client.getNom().isEmpty()) {
+				throw new ServiceException("Le nom est vide");
+				}
+			if (client.getPrenom().isEmpty()) {
+				throw new ServiceException("Le prénom est vide");
+			}
 			return clientDao.create(client);
 		} catch (Exception e) {
 			throw new ServiceException("Problème lors de la création du client ");
 		}
 		// Créer un client
+
 	}
 
 	public Client findById(long id) throws ServiceException {
@@ -57,4 +64,5 @@ public class ClientService {
 		}
 	}
 	// Récupérer tous les clients
+
 }
