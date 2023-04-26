@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class VehicleService {
 
-	private VehicleDao vehicleDao;
+	private static VehicleDao vehicleDao;
 	public static VehicleService instance;
 	
 //	private VehicleService() {
@@ -65,5 +65,13 @@ public class VehicleService {
 		}
 	}
 	// TODO: récupérer tous les clients
+
+	public static int count() throws ServiceException {
+		try {
+			return vehicleDao.count();
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors du comptage des véhicules");
+		}
+	}
 
 }

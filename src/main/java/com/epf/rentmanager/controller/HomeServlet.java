@@ -43,6 +43,7 @@ public class HomeServlet extends HttpServlet {
 		try {
 
 			request.setAttribute("nbClients", clientService.count());
+			request.setAttribute("nbVehicles", VehicleService.count());
 
 		} catch (ServiceException e) {
 			System.out.println(e.getMessage());
