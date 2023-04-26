@@ -32,13 +32,13 @@ public class ReservationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*try {
-            request.setAttribute("rents", ReservationService.getInstance().findAll());
+        try {
+            request.setAttribute("rents", reservationService.findAll());
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
-        }*/
+        }
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/rents/list.jsp").forward(request, response);
     }
