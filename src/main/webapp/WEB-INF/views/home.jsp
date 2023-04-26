@@ -63,7 +63,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Reservations</span>
-              <span class="info-box-number">2</span>
+              <span class="info-box-number">${nbReservations}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

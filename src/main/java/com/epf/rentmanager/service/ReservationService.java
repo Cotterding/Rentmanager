@@ -70,7 +70,7 @@ public class ReservationService {
         }
     }
 
-    public int count() throws ServiceException {
+    public static int count() throws ServiceException {
         try {
             return reservationDao.count();
         } catch (DaoException e) {
