@@ -37,8 +37,8 @@
                                 <c:forEach items="${rents}" var="rent">
                                     <tr>
                                         <td>${rent.id}</td>
-                                        <td>${rent.vehicle_id}</td>
-                                        <td>${rent.client_id}</td>
+                                        <td>${vehicles.findById(rent.vehicle_id).constructeur}</td>
+                                        <td>${clients.findById(rent.client_id).prenom} ${clients.findById(rent.client_id).nom}</td>
                                         <td>${rent.debut}</td>
                                         <td>${rent.fin}</td>
                                         <td>

@@ -66,6 +66,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
+                                <a class="btn btn-primary" href="${pageContext.request.contextPath}/users">Revenir</a>
                                 <button type="submit" class="btn btn-info pull-right">Ajouter</button>
                             </div>
                             <!-- /.box-footer -->
