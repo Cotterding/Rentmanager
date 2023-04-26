@@ -11,6 +11,12 @@ public class Vehicle {
         this.nb_places = nb_places;
     }
 
+    public Vehicle() {
+        this.id = id;
+        this.constructeur = constructeur;
+        this.nb_places = nb_places;
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +

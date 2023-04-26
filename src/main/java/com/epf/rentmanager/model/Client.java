@@ -15,6 +15,10 @@ public class Client {
         this.naissance = naissance;
     }
 
+    public Client() {
+
+    }
+
 
     @Override
     public String toString() {

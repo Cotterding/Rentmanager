@@ -7,23 +7,28 @@ import com.epf.rentmanager.dao.ClientDao;
 import com.epf.rentmanager.exception.DaoException;
 import com.epf.rentmanager.exception.ServiceException;
 import com.epf.rentmanager.model.Client;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClientService {
 
 	private ClientDao clientDao;
 	public static ClientService instance;
 	
-	private ClientService() {
+	/*private ClientService() {
 		this.clientDao = ClientDao.getInstance();
+	}*/
+
+	private ClientService(ClientDao clientDao) {
+		this.clientDao = clientDao;
 	}
-	
-	public static ClientService getInstance() {
+	/*public static ClientService getInstance() {
 		if (instance == null) {
 			instance = new ClientService();
 		}
 		
 		return instance;
-	}
+	}*/
 	
 	
 	public long create(Client client) throws ServiceException {
@@ -48,7 +53,7 @@ public class ClientService {
 			throw  new ServiceException("L'id est inférieur ou égal à 0");
 		}
 		try {
-			return ClientDao.getInstance().findById(id);
+			return this.clientDao.findById(id);
 		} catch (DaoException e) {
 			throw new ServiceException("Problème lors de la création du client ");
 		}
@@ -57,7 +62,7 @@ public class ClientService {
 
 	public List<Client> findAll() throws ServiceException {
 		try {
-			return clientDao.getInstance().findAll();
+			return this.clientDao.findAll();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ServiceException("Problème lors de la création du client ");
