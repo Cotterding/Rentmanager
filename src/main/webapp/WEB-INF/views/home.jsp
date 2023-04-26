@@ -32,7 +32,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Utilisateurs</span>
-              <span class="info-box-number">${nb_client}</span>
+              <span class="info-box-number">${nbClients}</span>
 
             </div>
             <!-- /.info-box-content -->

@@ -1,5 +1,6 @@
 package com.epf.rentmanager.controller;
 
+import com.epf.rentmanager.exception.ServiceException;
 import com.epf.rentmanager.model.Client;
 import com.epf.rentmanager.service.ClientService;
 import com.epf.rentmanager.service.ReservationService;
@@ -38,6 +39,15 @@ public class HomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		try {
+
+			request.setAttribute("nbClients", clientService.count());
+
+		} catch (ServiceException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
 	}

@@ -65,4 +65,5 @@ public class VehicleService {
 		}
 	}
 	// TODO: récupérer tous les clients
+
 }
