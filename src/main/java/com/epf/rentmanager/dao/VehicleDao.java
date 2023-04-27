@@ -28,6 +28,8 @@ public class VehicleDao {
 
 	private static final String UPDATE_VEHICLE_QUERY = "UPDATE Vehicle SET constructeur=?, nb_places=? WHERE id=?;";
 
+	private static final String COUNT_VEHICLES_BY_CLIENT_QUERY = "SELECT COUNT(id) AS count FROM Vehicle WHERE id IN (SELECT vehicle_id FROM Reservation WHERE client_id=?);";
+
 	
 	public long create(Vehicle vehicle) throws DaoException {
 		long id = 0;
@@ -124,6 +126,21 @@ public class VehicleDao {
 		} catch (SQLException e) {
 			throw new DaoException();
 		}
+	}
+
+	public int countVehicleByClientId(long clientId) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(COUNT_VEHICLES_BY_CLIENT_QUERY);
+			preparedStatement.setLong(1, clientId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
+		return 0;
 	}
 
 }

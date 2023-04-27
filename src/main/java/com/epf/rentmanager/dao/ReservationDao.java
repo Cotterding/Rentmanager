@@ -31,6 +31,8 @@ public class ReservationDao {
 	private static final String COUNT_RESERVATIONS_QUERY = "SELECT COUNT(id) AS count FROM Reservation;";
 	private static final String FIND_RESERVATION_QUERY = "SELECT client_id, vehicle_id, debut, fin FROM Reservation WHERE id=?;";
 	private static final String UPDATE_RESERVATION_QUERY = "UPDATE Reservation SET client_id=?, vehicle_id=?, debut=?, fin=? WHERE id=?;";
+	private static final String COUNT_RESERVATIONS_BY_CLIENT_QUERY = "SELECT COUNT(id) AS count FROM Reservation WHERE client_id=?;";
+	private static final String COUNT_RESERVATIONS_BY_VEHICLE_QUERY = "SELECT COUNT(id) AS count FROM Reservation WHERE vehicle_id=?;";
 
 
 		
@@ -190,5 +192,35 @@ public class ReservationDao {
 		} catch (SQLException e) {
 			throw new DaoException();
 		}
+	}
+
+	public int countResaByClientId(int client_id) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(COUNT_RESERVATIONS_BY_CLIENT_QUERY);
+			preparedStatement.setInt(1, client_id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
+		return 0;
+	}
+
+	public int countResaByVehicleId(int client_id) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(COUNT_RESERVATIONS_BY_VEHICLE_QUERY);
+			preparedStatement.setInt(1, client_id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
+		return 0;
 	}
 }

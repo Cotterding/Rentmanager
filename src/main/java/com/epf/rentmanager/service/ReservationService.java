@@ -105,6 +105,22 @@ public class ReservationService {
         }
     }
 
+    public int countResaByClientId(int client_id) throws ServiceException {
+        try {
+            return reservationDao.countResaByClientId(client_id);
+        } catch (DaoException e) {
+            throw new ServiceException("Erreur lors du comptage des réservations");
+        }
+    }
+
+    public int countResaByVehicleId(int client_id) throws ServiceException {
+        try {
+            return reservationDao.countResaByVehicleId(client_id);
+        } catch (DaoException e) {
+            throw new ServiceException("Erreur lors du comptage des réservations");
+        }
+    }
+
 }
 
 

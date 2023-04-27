@@ -96,4 +96,12 @@ public class VehicleService {
 		}
 	}
 
+	public int countVehicleByClientId(long clientId) throws ServiceException {
+		try {
+			return vehicleDao.countVehicleByClientId(clientId);
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors du comptage des véhicules");
+		}
+	}
+
 }

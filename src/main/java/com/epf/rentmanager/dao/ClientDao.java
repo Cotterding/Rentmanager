@@ -27,10 +27,9 @@ public class ClientDao {
 	private static final String DELETE_CLIENT_QUERY = "DELETE FROM Client WHERE id=?;";
 	private static final String FIND_CLIENT_QUERY = "SELECT nom, prenom, email, naissance FROM Client WHERE id=?;";
 	private static final String FIND_CLIENTS_QUERY = "SELECT id, nom, prenom, email, naissance FROM Client;";
-
 	private static final String COUNT_CLIENTS_QUERY = "SELECT COUNT(id) AS count FROM Client;";
-
 	private static final String UPDATE_CLIENT_QUERY = "UPDATE Client SET nom=?, prenom=?, email=?, naissance=? WHERE id=?;";
+	private static final String COUNT_CLIENTS_BY_VEHICLE_QUERY = "SELECT COUNT(id) AS count FROM Client WHERE id IN (SELECT client_id FROM Reservation WHERE vehicle_id=?);";
 	
 	public long create(Client client) throws DaoException {
 		try (Connection connection = ConnectionManager.getConnection()) {
@@ -136,6 +135,21 @@ public class ClientDao {
 		} catch (SQLException e) {
 			throw new DaoException();
 		}
+	}
+
+	public int countClientByVehicleId(long vehicleId) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(COUNT_CLIENTS_BY_VEHICLE_QUERY);
+			preparedStatement.setLong(1, vehicleId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
+		return 0;
 	}
 
 }

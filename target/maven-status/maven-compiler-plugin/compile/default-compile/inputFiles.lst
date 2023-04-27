@@ -3,14 +3,17 @@
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/CreateVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/dao/ClientDao.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/configuration/AppConfiguration.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DetailsUserServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/UserServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/persistence/ConnectionManager.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/configuration/WebConfiguration.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DetailsVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/service/ReservationService.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/exception/DaoException.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/UpdateUserServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/UpdateVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/service/VehicleService.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DetailsReservationServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/model/Reservation.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DeleteVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/dao/ReservationDao.java
