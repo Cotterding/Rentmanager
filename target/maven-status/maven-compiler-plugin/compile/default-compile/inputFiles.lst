@@ -1,5 +1,6 @@
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/service/VehicleService.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/ReservationServlet.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/CreateVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/dao/ClientDao.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/model/Reservation.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/dao/ReservationDao.java

@@ -32,22 +32,16 @@
                         <form class="form-horizontal" method="post">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="manufacturer" class="col-sm-2 control-label">Marque</label>
+                                    <label for="manufacturer" class="col-sm-2 control-label">Constructeur</label>
 
 									<!-- Pour r�up�rer la valeur rentr�e dans un champ input de cette jsp au niveau de votre servlet -->
 									<!-- vous devez passer par les methodes getParameter de l'objet request, est sp�cifiant la valeur -->
 									<!-- de l'attribut "name" de l'input -->
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Marque" required>
+                                        <input type="text" class="form-control" id="manufacturer" name="manufacturer" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="modele" class="col-sm-2 control-label">Modele</label>
 
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="modele" name="modele" placeholder="Modele" required>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label for="seats" class="col-sm-2 control-label">Nombre de places</label>
 
@@ -55,18 +49,7 @@
                                         <input type="text" class="form-control" id="seats" name="seats" placeholder="Nombre de places" required>
                                     </div>
                                 </div>
-                                <!--
-                                <div class="form-group">
-                                    <label for="owner" class="col-sm-2 control-label">Propriétaire</label>
 
-                                    <div class="col-sm-10">
-                                        <select class="form-control" id="owner" name="owner">
-                                            <option value="1">John Doe</option>
-                                            <option value="2">Jane Doe</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                -->
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">

@@ -47,4 +47,6 @@ public class Vehicle {
     public void setNb_places(int nb_places) {
         this.nb_places = nb_places;
     }
+
+    public void setId(int id) { this.id = id; }
 }

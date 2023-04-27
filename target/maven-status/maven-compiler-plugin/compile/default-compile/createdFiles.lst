@@ -6,6 +6,7 @@ com/epf/rentmanager/model/Client.class
 com/epf/rentmanager/dao/ReservationDao.class
 com/epf/rentmanager/model/Vehicle.class
 com/epf/rentmanager/persistence/ConnectionManager.class
+com/epf/rentmanager/controller/CreateVehicleServlet.class
 com/epf/rentmanager/controller/HomeServlet.class
 com/epf/rentmanager/service/VehicleService.class
 com/epf/rentmanager/dao/VehicleDao.class
