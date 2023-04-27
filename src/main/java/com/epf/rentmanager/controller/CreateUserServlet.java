@@ -33,17 +33,23 @@ public class CreateUserServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/users/create.jsp").forward(request, response);
     }
 
-    /*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
-            Client client = new Client();
-            client.setNom(request.getParameter("nom"));
-            client.setPrenom(request.getParameter("prenom"));
-            client.setEmail(request.getParameter("email"));
-            client.setNaissance(LocalDate.parse(request.getParameter("naissance")));
+            final Client client = new Client();
+            String nom = request.getParameter("last_name");
+            String prenom = request.getParameter("first_name");
+            String email = request.getParameter("email");
+            String naissance = request.getParameter("naissance");
+            client.setNom(nom);
+            client.setPrenom(prenom);
+            client.setEmail(email);
+            client.setNaissance(LocalDate.parse(naissance));
             clientService.create(client);
-            response.sendRedirect(request.getContextPath() + "/users");
+
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-    }*/
+        this.getServletContext().getRequestDispatcher("/WEB-INF/views/users/create.jsp").forward(request, response);
+    }
 }

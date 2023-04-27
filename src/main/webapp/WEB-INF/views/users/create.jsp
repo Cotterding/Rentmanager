@@ -25,7 +25,7 @@
                     <!-- Horizontal Form -->
                     <div class="box">
                         <!-- form start -->
-                        <form class="form-horizontal" method="post" action="/users/create">
+                        <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/users/create">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="last_name" class="col-sm-2 control-label">Nom</label>
@@ -52,7 +52,7 @@
                                     <label for="naissance" class="col-sm-2 control-label">Naissance</label>
 
                                     <div class="col-sm-10">
-                                        <input type="naissance" class="form-control" id="naissance" name="naissance" placeholder="Naissance">
+                                        <input type="date" class="form-control" id="naissance" name="naissance" placeholder="Date de naissance">
                                     </div>
                                 </div>
                             </div>
