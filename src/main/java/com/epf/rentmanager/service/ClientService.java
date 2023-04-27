@@ -85,4 +85,18 @@ public class ClientService {
 			throw new ServiceException("Erreur lors de la suppression du client");
 		}
 	}
+
+	public void update(Client client) throws ServiceException {
+		try {
+			if (client.getNom().length() < 1) {
+				throw new ServiceException("Le nom doit contenir au moins 1 caractère");
+			}
+			if (client.getPrenom().length() < 1) {
+				throw new ServiceException("Le prénom doit contenir au moins 1 caractère");
+			}
+			clientDao.update(client);
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors de la mise à jour du client");
+		}
+	}
 }
