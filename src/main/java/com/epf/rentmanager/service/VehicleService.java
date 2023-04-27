@@ -74,4 +74,26 @@ public class VehicleService {
 		}
 	}
 
+	public void delete(long id) throws ServiceException {
+		try {
+			vehicleDao.delete(id);
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors de la suppression du vehicule");
+		}
+	}
+
+	public void update(Vehicle vehicle) throws ServiceException {
+		try {
+			if (vehicle.getConstructeur().length() < 1) {
+				throw new ServiceException("Le constructeur doit contenir au moins 1 caractère");
+			}
+			if (vehicle.getNb_places() < 1) {
+				throw new ServiceException("La voiture doit contenir au moins 1 place");
+			}
+			vehicleDao.update(vehicle);
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors de la mise à jour du vehicule");
+		}
+	}
+
 }

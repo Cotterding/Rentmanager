@@ -26,6 +26,8 @@ public class VehicleDao {
 	private static final String FIND_VEHICLES_QUERY = "SELECT id, constructeur, nb_places FROM Vehicle;";
 	private static final String COUNT_VEHICLES_QUERY = "SELECT COUNT(id) AS count FROM Vehicle;";
 
+	private static final String UPDATE_VEHICLE_QUERY = "UPDATE Vehicle SET constructeur=?, nb_places=? WHERE id=?;";
+
 	
 	public long create(Vehicle vehicle) throws DaoException {
 		long id = 0;
@@ -98,6 +100,30 @@ public class VehicleDao {
 			throw new DaoException();
 		}
 		return 0;
+	}
+
+	public void delete(long id) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_VEHICLE_QUERY);
+			preparedStatement.setLong(1, id);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
+	}
+
+	public void update(Vehicle vehicle) throws DaoException {
+		try {
+			Connection connection = ConnectionManager.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_VEHICLE_QUERY);
+			preparedStatement.setString(1, vehicle.getConstructeur());
+			preparedStatement.setInt(2, vehicle.getNb_places());
+			preparedStatement.setLong(3, vehicle.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DaoException();
+		}
 	}
 
 }

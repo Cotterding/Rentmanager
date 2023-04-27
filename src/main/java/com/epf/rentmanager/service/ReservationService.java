@@ -78,6 +78,33 @@ public class ReservationService {
         }
     }
 
+    public void delete(long id) throws ServiceException {
+        try {
+            reservationDao.delete(id);
+        } catch (DaoException e) {
+            throw new ServiceException("Erreur lors de la suppression de la réservation");
+        }
+    }
+
+    public Reservation findById(long id) throws ServiceException {
+        if(id<0){
+            throw new ServiceException("L'id doit être positif");
+        }
+        try {
+            return reservationDao.findById(id);
+        } catch (DaoException e) {
+            throw new ServiceException("Erreur lors de la récupération de la réservation");
+        }
+    }
+
+    public void update(Reservation reservation) throws ServiceException {
+        try {
+            reservationDao.update(reservation);
+        } catch (DaoException e) {
+            throw new ServiceException("Erreur lors de la mise à jour de la réservation");
+        }
+    }
+
 }
 
 

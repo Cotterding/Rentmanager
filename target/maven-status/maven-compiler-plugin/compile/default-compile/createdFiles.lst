@@ -1,4 +1,7 @@
+com/epf/rentmanager/controller/UpdateReservationServlet.class
 com/epf/rentmanager/exception/DaoException.class
+com/epf/rentmanager/controller/UpdateVehicleServlet.class
+com/epf/rentmanager/controller/DeleteReservationServlet.class
 com/epf/rentmanager/persistence/ConnectionManager.class
 com/epf/rentmanager/controller/CreateVehicleServlet.class
 com/epf/rentmanager/controller/HomeServlet.class
@@ -19,3 +22,4 @@ com/epf/rentmanager/controller/UpdateUserServlet.class
 com/epf/rentmanager/controller/UserServlet.class
 com/epf/rentmanager/main/Main.class
 com/epf/rentmanager/persistence/FillDatabase.class
+com/epf/rentmanager/controller/DeleteVehicleServlet.class
