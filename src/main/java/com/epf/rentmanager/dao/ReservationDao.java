@@ -69,12 +69,13 @@ public class ReservationDao {
 	}
 
 	
-	public List<Reservation> findResaByClientId(long clientId) throws DaoException {
+	public List<Reservation> findResaByClientId(int clientId) throws DaoException {
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		try {
 			Connection connection = ConnectionManager.getConnection();
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(FIND_RESERVATIONS_BY_CLIENT_QUERY);
+			PreparedStatement preparedStatement = connection.prepareStatement(FIND_RESERVATIONS_BY_CLIENT_QUERY);
+			preparedStatement.setInt(1, clientId);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()){
 				Reservation reservation = new Reservation();
 				reservation.setClient_id((int) clientId);
@@ -90,12 +91,14 @@ public class ReservationDao {
 		return reservations;
 	}
 	
-	public List<Reservation> findResaByVehicleId(long vehicleId) throws DaoException {
+	public List<Reservation> findResaByVehicleId(int vehicleId) throws DaoException {
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		try {
 			Connection connection = ConnectionManager.getConnection();
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(FIND_RESERVATIONS_BY_VEHICLE_QUERY);
+			PreparedStatement preparedStatement = connection.prepareStatement(FIND_RESERVATIONS_BY_VEHICLE_QUERY);
+			preparedStatement.setInt(1, vehicleId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
 			while (resultSet.next()){
 				Reservation reservation = new Reservation();
 				reservation.setVehicle_id((int) vehicleId);

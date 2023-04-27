@@ -36,25 +36,25 @@ public class ReservationService {
         }
     }
 
-    public Reservation findResaByClientId(int client_id) throws ServiceException {
+    public List<Reservation> findResaByClientId(int client_id) throws ServiceException {
         // TODO: récupérer un client par son id
         if(client_id<0){
             throw new ServiceException("L'id doit être positif");
         }
         try {
-            return (Reservation) reservationDao.findResaByClientId(client_id);
+            return reservationDao.findResaByClientId(client_id);
         } catch (DaoException e) {
             e.printStackTrace();
             throw new ServiceException("Erreur lors de la récupération des réservations");
         }
     }
 
-    public Reservation findResaByVehicleId(int vehicle_id) throws ServiceException {
+    public List<Reservation> findResaByVehicleId(int vehicle_id) throws ServiceException {
         if(vehicle_id<0){
             throw new ServiceException("L'id doit être positif");
         }
         try {
-            return (Reservation) reservationDao.findResaByVehicleId(vehicle_id);
+            return reservationDao.findResaByVehicleId(vehicle_id);
         } catch (DaoException e) {
             e.printStackTrace();
             throw new ServiceException("Erreur lors de la récupération des réservations");

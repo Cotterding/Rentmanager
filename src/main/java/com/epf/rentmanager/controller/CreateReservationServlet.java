@@ -53,7 +53,7 @@ public class CreateReservationServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse
             response) throws ServletException, IOException {
-        // traitement du formulaire (appel à la méthode de sauvegarde)
+
         try {
             Reservation reservation = new Reservation();
             reservation.setId(UUID.randomUUID().hashCode());
@@ -61,6 +61,7 @@ public class CreateReservationServlet extends HttpServlet{
             reservation.setClient_id(Integer.parseInt(request.getParameter("client")));
             reservation.setDebut(LocalDate.parse(request.getParameter("begin")));
             reservation.setFin(LocalDate.parse(request.getParameter("end")));
+            //System.out.println(reservation);
             reservationService.create(reservation);
 
         }
