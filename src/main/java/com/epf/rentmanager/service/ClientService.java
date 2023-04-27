@@ -77,4 +77,12 @@ public class ClientService {
 			throw new ServiceException("Erreur lors du comptage des clients");
 		}
 	}
+
+	public void delete(long id) throws ServiceException {
+		try {
+			clientDao.delete(id);
+		} catch (DaoException e) {
+			throw new ServiceException("Erreur lors de la suppression du client");
+		}
+	}
 }
