@@ -1,4 +1,5 @@
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DeleteUserServlet.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/constraint/VehicleConstraints.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/ReservationServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/CreateVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/dao/ClientDao.java
@@ -7,6 +8,7 @@
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/UserServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/persistence/ConnectionManager.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/configuration/WebConfiguration.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/constraint/ClientConstraints.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/DetailsVehicleServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/service/ReservationService.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/exception/DaoException.java
@@ -23,6 +25,7 @@
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/VehiculeServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/persistence/FillDatabase.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/exception/ServiceException.java
+/Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/constraint/ReservationConstraints.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/service/ClientService.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/controller/CreateReservationServlet.java
 /Users/loutre/Desktop/JAVA/rentmanager copie 4/src/main/java/com/epf/rentmanager/utils/IOUtils.java

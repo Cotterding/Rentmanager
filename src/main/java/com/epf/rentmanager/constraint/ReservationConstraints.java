@@ -4,14 +4,13 @@ import com.epf.rentmanager.model.Reservation;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
-import com.epf.rentmanager.model.Reservation;
 import java.util.List;
 import java.time.temporal.ChronoUnit;
 import static java.lang.Math.abs;
 
 import org.springframework.stereotype.Component;
 @Component
-public class ReservationConsraints {
+public class ReservationConstraints {
 
     public static boolean isAlreadyReservedToday(Reservation nouvelleReservation, List<Reservation> reservations) {
 

@@ -1,7 +1,6 @@
 package com.epf.rentmanager.service;
 
 import java.util.List;
-
 import com.epf.rentmanager.exception.DaoException;
 import com.epf.rentmanager.exception.ServiceException;
 import com.epf.rentmanager.model.Client;
@@ -9,24 +8,14 @@ import com.epf.rentmanager.model.Vehicle;
 import com.epf.rentmanager.dao.ClientDao;
 import com.epf.rentmanager.dao.VehicleDao;
 import org.springframework.stereotype.Service;
+import com.epf.rentmanager.constraint.VehicleConstraints;
 
 @Service
 public class VehicleService {
 
 	private static VehicleDao vehicleDao;
 	public static VehicleService instance;
-	
-//	private VehicleService() {
-//		this.vehicleDao = VehicleDao.getInstance();
-//	}
-	
-	/*public static VehicleService getInstance() {
-		if (instance == null) {
-			instance = new VehicleService();
-		}
-		
-		return instance;
-	}*/
+
 
 	public VehicleService(VehicleDao vehicleDao) {
 		this.vehicleDao = vehicleDao;
@@ -40,11 +29,13 @@ public class VehicleService {
 			if (vehicle.getNb_places()<1) {
 				throw new ServiceException("Le nombre de place est inférieur à 1");
 			}
+			if (VehicleConstraints.isNbPlacesBetween(vehicle) == false) {
+				throw new ServiceException("Le nombre de place n'est pas compris entre 2 et 9");
+			}
 			return vehicleDao.create(vehicle);
 		} catch (DaoException e) {
 			throw new ServiceException("Problème lors de la création du véhicule ");
 		}
-		// TODO: créer un véhicule
 	}
 
 	public Vehicle findById(long id) throws ServiceException {
@@ -53,7 +44,6 @@ public class VehicleService {
 		} catch (DaoException e) {
 			throw new ServiceException("Problème lors de la création du véhicule ");
 		}
-		// TODO: récupérer un véhicule par son id
 	}
 
 	public List<Vehicle> findAll() throws ServiceException {
@@ -64,7 +54,6 @@ public class VehicleService {
 			throw new ServiceException("Problème lors de la création du véhicule ");
 		}
 	}
-	// TODO: récupérer tous les clients
 
 	public static int count() throws ServiceException {
 		try {

@@ -8,21 +8,12 @@ import com.epf.rentmanager.exception.DaoException;
 import com.epf.rentmanager.exception.ServiceException;
 import com.epf.rentmanager.model.Reservation;
 import org.springframework.stereotype.Service;
+import com.epf.rentmanager.constraint.ReservationConstraints;
 
 @Service
 public class ReservationService {
     private static ReservationDao reservationDao;
     public static ReservationService instance;
-
-//    private ReservationService() { reservationDao = ReservationDao.getInstance(); }
-
-    /*public static ReservationService getInstance() {
-        if (instance == null) {
-            instance = new ReservationService();
-        }
-
-        return instance;
-    }*/
 
     private ReservationService(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
@@ -30,6 +21,20 @@ public class ReservationService {
 
     public long create(Reservation reservation) throws ServiceException {
         try {
+            if(reservation.getDebut().isAfter(reservation.getFin())){
+                throw new ServiceException("La date de début doit être avant la date de fin");
+            }
+            if(ReservationConstraints.isReservedMoreThanSevenDaysBySameUser(reservation)){
+                throw new ServiceException("Un utilisateur ne peut pas réserver plus de 7 jours");
+            }
+            /*List<Reservation> array = new ArrayList<>();
+            array = reservationDao.findResaByVehicleId(reservation.getVehicle_id());
+            if (ReservationConstraints.isVehicleReservedMoreThan30DaysWithoutPause(array)) {
+                throw new ServiceException("Un véhicule ne peut pas être réservé plus de 30 jours sans pause");
+            }
+            if (ReservationConstraints.isAlreadyReservedToday(reservation,array)) {
+                throw new ServiceException("Ce véhicule est déjà réservé aujourd'hui");
+            }*/
             return reservationDao.create(reservation);
         } catch (DaoException e) {
             throw new ServiceException("Erreur lors de la création de la réservation");
@@ -37,7 +42,6 @@ public class ReservationService {
     }
 
     public List<Reservation> findResaByClientId(int client_id) throws ServiceException {
-        // TODO: récupérer un client par son id
         if(client_id<0){
             throw new ServiceException("L'id doit être positif");
         }
@@ -62,7 +66,6 @@ public class ReservationService {
     }
 
     public List<Reservation> findAll() throws ServiceException {
-        // TODO: récupérer tous les clients
         try {
             return reservationDao.findAll();
         } catch (DaoException e) {
