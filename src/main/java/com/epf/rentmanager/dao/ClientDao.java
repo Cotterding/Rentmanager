@@ -30,6 +30,7 @@ public class ClientDao {
 	private static final String COUNT_CLIENTS_QUERY = "SELECT COUNT(id) AS count FROM Client;";
 	private static final String UPDATE_CLIENT_QUERY = "UPDATE Client SET nom=?, prenom=?, email=?, naissance=? WHERE id=?;";
 	private static final String COUNT_CLIENTS_BY_VEHICLE_QUERY = "SELECT COUNT(id) AS count FROM Client WHERE id IN (SELECT client_id FROM Reservation WHERE vehicle_id=?);";
+	private static final String FIND_CLIENT_BY_MAIL_QUERY = "SELECT nom, prenom, email, naissance FROM Client WHERE email=? AND id <> ?;";
 	
 	public long create(Client client) throws DaoException {
 		try (Connection connection = ConnectionManager.getConnection()) {
@@ -150,6 +151,26 @@ public class ClientDao {
 			throw new DaoException();
 		}
 		return 0;
+	}
+
+	public boolean doesClientAlreadyExist(Client client) {
+
+		try (Connection connection = ConnectionManager.getConnection()) {
+
+			PreparedStatement stmt = connection.prepareStatement(FIND_CLIENT_BY_MAIL_QUERY);
+			stmt.setString(1, client.getEmail());
+			stmt.setInt(2, client.getId());
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return true;
 	}
 
 }
